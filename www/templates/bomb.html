@@ -1,0 +1,30 @@
+<span class="beep {{activate}}"></span>
+
+<div class="display">
+  <div class="code">
+    <span class="active">{{codeActive}}</span>
+    <span class="desactive">{{codeDesactive}}</span>
+  </div>
+</div>
+<div class="chip"></div>
+
+<div class="keyboard">
+
+  <ul>
+
+    <li><button ng-click="pressButton($event)" class="btn-push">1</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">2</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">3</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">4</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">5</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">6</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">7</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">8</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">9</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">*</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">0</button></li>
+    <li><button ng-click="pressButton($event)" class="btn-push">#</button></li>
+  </ul>
+</div>
+
+<img src="/img/explosion.gif" class="explosion {{explosion}}">
