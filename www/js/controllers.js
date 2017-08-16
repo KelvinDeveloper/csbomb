@@ -15,6 +15,11 @@ angular.module('starter.controllers', [])
 
   $scope.pressButton = function (obj) {
 
+    var $test = new Media('songs/Bleep.mp3');
+      $test.play();
+
+      return false;
+
       $scope.sounds.bleep.currentTime = 0;
       $scope.sounds.bleep.play();
 
