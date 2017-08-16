@@ -8,14 +8,15 @@ angular.module('starter.controllers', [])
   $scope.explosion     = false;
 
   $scope.sounds = [];
-  $scope.sounds.plantedBomb = new Audio('/songs/Planted bomb.mp3');
+  $scope.sounds.bleep = document.getElementById('bleep');
+  $scope.sounds.plantedBomb = document.getElementById('plantedBomb');
 
   $scope.timer = '';
 
   $scope.pressButton = function (obj) {
 
-    var beep = new Audio('/songs/Bleep.mp3');
-    beep.play();
+      $scope.sounds.bleep.currentTime = 0;
+      $scope.sounds.bleep.play();
 
     if (! $scope.activate ) {
 
