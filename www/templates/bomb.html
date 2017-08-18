@@ -1,40 +1,44 @@
-<span class="beep {{activate}}"></span>
+<ion-view hide-nav-bar="true" hide-back-button="true">
 
-<div class="display">
-  <div class="code">
-    <span class="active">{{codeActive}}</span>
-    <span class="desactive">{{codeDesactive}}</span>
+  <span class="beep {{activate}}"></span>
+
+  <div class="display">
+    <div class="code">
+      <span class="active">{{codeActive}}</span>
+      <span class="desactive">{{codeDisarm}}</span>
+    </div>
   </div>
-</div>
-<div class="chip"></div>
+  <div class="chip"></div>
 
-<div class="keyboard">
+  <div class="keyboard">
 
-  <ul>
+    <ul>
 
-    <li><button ng-click="pressButton($event)" class="btn-push">1</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">2</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">3</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">4</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">5</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">6</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">7</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">8</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">9</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">*</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">0</button></li>
-    <li><button ng-click="pressButton($event)" class="btn-push">#</button></li>
-  </ul>
-</div>
+      <li><button ng-click="pressButton($event)" class="btn-push">1</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">2</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">3</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">4</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">5</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">6</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">7</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">8</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">9</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">*</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">0</button></li>
+      <li><button ng-click="pressButton($event)" class="btn-push">#</button></li>
+    </ul>
+  </div>
 
-<img src="img/explosion.gif" class="explosion {{explosion}}">
+  <img src="img/explosion.gif" class="explosion {{explosion}}">
 
-<audio id="bleep" src="songs/Bleep.mp3"></audio>
-<audio id="plantedBomb" src="songs/PlantedBomb.mp3"></audio>
-<audio id="bombHasBeenPlanted" src="songs/BombHasBeenPlanted.mp3"></audio>
-<audio id="plantingC4Bomb" src="songs/PlantingC4Bomb.mp3"></audio>
-<audio id="bombHasBeenDefused" src="songs/BombHasBeenDefused.mp3"></audio>
-<audio id="win" src="songs/Win.mp3"></audio>
-<audio id="counterTerroristWin" src="songs/CounterTerroristWin.mp3"></audio>
-<audio id="bombC4Explode" src="songs/BombC4Explode.mp3"></audio>
-<audio id="terroristsWin" src="songs/TerroristsWin.mp3"></audio>
+  <audio id="bleep" src="songs/Bleep.mp3"></audio>
+  <audio id="plantedBomb" src="songs/PlantedBomb.mp3"></audio>
+  <audio id="bombHasBeenPlanted" src="songs/BombHasBeenPlanted.mp3"></audio>
+  <audio id="plantingC4Bomb" src="songs/PlantingC4Bomb.mp3"></audio>
+  <audio id="bombHasBeenDefused" src="songs/BombHasBeenDefused.mp3"></audio>
+  <audio id="win" src="songs/Win.mp3"></audio>
+  <audio id="counterTerroristWin" src="songs/CounterTerroristWin.mp3"></audio>
+  <audio id="bombC4Explode" src="songs/BombC4Explode.mp3"></audio>
+  <audio id="terroristsWin" src="songs/TerroristsWin.mp3"></audio>
+
+</ion-view>
