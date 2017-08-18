@@ -4,21 +4,24 @@ angular.module('starter.controllers', [])
 
   $scope.activate      = false;
   $scope.codeActive    = '';
-  $scope.codeDesactive = '';
+  $scope.codeDisarm    = '';
   $scope.explosion     = false;
 
-  $scope.sounds = [];
-  $scope.sounds.bleep = document.getElementById('bleep');
-  $scope.sounds.plantedBomb = document.getElementById('plantedBomb');
+  $scope.sounds = {
+    bleep:                document.getElementById('bleep'),
+    plantedBomb:          document.getElementById('plantedBomb'),
+    bombHasBeenPlanted:   document.getElementById('bombHasBeenPlanted'),
+    plantingC4Bomb:       document.getElementById('plantingC4Bomb'),
+    bombHasBeenDefused:   document.getElementById('bombHasBeenDefused'),
+    win:                  document.getElementById('win'),
+    counterTerroristWin:  document.getElementById('counterTerroristWin'),
+    bombC4Explode:        document.getElementById('bombC4Explode'),
+    terroristsWin:        document.getElementById('terroristsWin'),
+  };
 
   $scope.timer = '';
 
   $scope.pressButton = function (obj) {
-
-    var $test = new Media('songs/Bleep.mp3');
-      $test.play();
-
-      return false;
 
       $scope.sounds.bleep.currentTime = 0;
       $scope.sounds.bleep.play();
@@ -35,24 +38,27 @@ angular.module('starter.controllers', [])
       return true;
     }
 
-    $scope.codeDesactive += String( obj.target.innerText );
+    $scope.codeDisarm += String( obj.target.innerText );
 
-    if ( $scope.codeDesactive == $scope.codeActive ) {
+    if ( $scope.codeDisarm == $scope.codeActive ) {
 
-      return $scope.desactive();
+      return $scope.disarm();
     }
-    else if ( $scope.codeDesactive.length >= 7 ) {
+    else if ( $scope.codeDisarm.length >= 7 ) {
 
-      return $scope.codeDesactive = '';
+      return $scope.codeDisarm = '';
     }
   }
 
   $scope.active = function () {
 
-    var bombHasBeenPlanted = new Audio('/songs/Bomb has been planted.mp3'),
-        plantingC4Bomb     = new Audio('/songs/Planting C4 bomb.mp3');
-    bombHasBeenPlanted.play();
-    plantingC4Bomb.play();
+    $scope.sounds.bombHasBeenPlanted.currentTime = 0;
+    $scope.sounds.bombHasBeenPlanted.play();
+
+    $scope.sounds.plantingC4Bomb.currentTime = 0;
+    $scope.sounds.plantingC4Bomb.play();
+
+    $scope.sounds.plantedBomb.currentTime = 0;
     $scope.sounds.plantedBomb.play();
 
     $scope.activate = true;
@@ -63,20 +69,22 @@ angular.module('starter.controllers', [])
     }, 15000);
   }
 
-  $scope.desactive = function () {
+  $scope.disarm = function () {
 
-    clearInterval($scope.timer);
+    $timeout.cancel($scope.timer);
 
-    var bombHasBeenDefused = new Audio('/songs/Bomb has been defused.mp3'),
-        win                 = new Audio('/songs/Win.mp3');
-    bombHasBeenDefused.play();
-    win.play();
+    $scope.sounds.bombHasBeenDefused.currentTime = 0;
+    $scope.sounds.win.currentTime = 0;
+
+    $scope.sounds.bombHasBeenDefused.play();
+    $scope.sounds.win.play();
 
     $scope.sounds.plantedBomb.pause();
 
     $timeout(function () {
-      var counterTerroristWin = new Audio('/songs/Counter-Terrorist win.mp3');
-      counterTerroristWin.play();
+
+      $scope.sounds.counterTerroristWin.currentTime = 0;
+      $scope.sounds.counterTerroristWin.play();
     }, 1200);
 
     $scope.codeActive    = '';
@@ -87,15 +95,19 @@ angular.module('starter.controllers', [])
   $scope.explode = function () {
 
     $scope.codeActive    = '';
-    $scope.codeDesactive = '';
+    $scope.codeDisarm    = '';
     $scope.activate      = false;
     $scope.explosion     = 'true';
 
-    var bombC4Explode = new Audio('/songs/Bomb C4 explode.mp3'),
-        terroristWin  = new Audio('/songs/Terrorists win.mp3');
     $scope.sounds.plantedBomb.pause();
-    bombC4Explode.play();
-    terroristWin.play();
+
+    $scope.sounds.bombC4Explode.currentTime = 0;
+    $scope.sounds.terroristsWin.currentTime = 0;
+    $scope.sounds.win.currentTime = 0;
+
+    $scope.sounds.bombC4Explode.play();
+    $scope.sounds.terroristsWin.play();
+    $scope.sounds.win.play();
 
     $timeout(function () {
       $scope.explosion = false;
